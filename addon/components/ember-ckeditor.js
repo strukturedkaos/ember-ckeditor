@@ -17,6 +17,26 @@ export default Ember.Component.extend({
     editor.on('change', (e) => {
       this.set('value', e.editor.getData());
     });
+    
+    if(this.attrs.blur) {
+      editor.on('blur', (e) => {
+        if(!e.editor.getData()) {
+          e.editor.element.addClass('cke_empty');
+        } else {
+          e.editor.element.removeClass('cke_empty');
+        }
+        
+        this.attrs.blur();
+      });
+    }
+    
+    editor.on('instanceReady', (e) => {
+      if(!e.editor.getData()) {
+        e.editor.element.addClass('cke_empty');
+      } else {
+        e.editor.element.removeClass('cke_empty');
+      }
+    });
   },
 
   willDestroyElement() {
