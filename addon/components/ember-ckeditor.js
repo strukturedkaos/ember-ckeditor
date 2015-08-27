@@ -4,15 +4,16 @@ import layout from '../templates/components/ember-ckeditor';
 
 export default Ember.Component.extend({
   layout: layout,
-
+  
+  inline: false,
   _editor: null,
-  'on-change': null,
 
   didInsertElement() {
-    let textarea = this.element.querySelector('.editor');
-    let editor = this._editor = CKEDITOR.replace(textarea);
+    let initFn = this.get('inline') ? 'inline' : 'replace',
+      editor = this._editor = CKEDITOR[initFn](this.get('elementId') + '-editor');
+    
     editor.on('change', (e) => {
-      this.sendAction('on-change', e.editor.getData());
+      this.attrs.change(e.editor.getData());
     });
   },
 

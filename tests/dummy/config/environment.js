@@ -12,13 +12,46 @@ module.exports = function(environment) {
         // e.g. 'with-controller': true
       }
     },
-
+    contentSecurityPolicy: {
+      'default-src': "'none'",
+      
+      'script-src': [
+        "'self'",
+        "'unsafe-inline'",
+        "'unsafe-eval'"
+      ].join(' '),
+      
+      'font-src': [
+        "'self'",
+        "'unsafe-inline'"
+      ].join(' '),
+      
+      'connect-src': [
+        "'self'",
+        "'unsafe-inline'"
+      ].join(' '),
+      
+      'img-src': [
+        "'self'",
+        "'unsafe-inline'"
+      ].join(' '),
+      
+      'style-src': [
+        "'self'",
+        "'unsafe-inline'"
+      ].join(' '),
+      
+      'media-src': [
+        "'self'",
+        "'unsafe-inline'"
+      ].join(' ')
+    },
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
     }
   };
-
+  
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;

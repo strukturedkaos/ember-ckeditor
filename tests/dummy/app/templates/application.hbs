@@ -1,5 +1,20 @@
-<h2 id="title">Welcome to ember-ckeditor</h2>
+{{ember-ckeditor
+  value=text
+  inline=true
+  change=(action 'updateValue')
+}}
 
-{{ember-ckeditor value=text on-change="textChanged"}}
+<hr>
 
 {{text}}
+
+<hr>
+
+{{ember-ckeditor
+  value=text2
+  change=(action 'updateValue')
+}}
+
+<hr>
+
+{{text2}}
