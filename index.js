@@ -27,7 +27,13 @@ module.exports = {
         'config.js',
         'contents.css',
         'lang/en.js',
-        'plugins/**',
+        'plugins/widget/plugin.js',
+        'plugins/widget/lang/en.js',
+        'plugins/autogrow/plugin.js',
+        'plugins/**/plugin.js',
+        'plugins/**/lang/en.js',
+        'plugins/**/*.png',
+        'plugins/**/*.gif',
         'skins/**'
       ],
       destDir: '/assets/ckeditor'
