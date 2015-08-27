@@ -12,6 +12,8 @@ export default Ember.Component.extend({
     let initFn = this.get('inline') ? 'inline' : 'replace',
       editor = this._editor = CKEDITOR[initFn](this.get('elementId') + '-editor');
     
+    this._editor.targetObject = this;
+    
     editor.on('change', (e) => {
       this.set('value', e.editor.getData());
     });
