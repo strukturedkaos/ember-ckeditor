@@ -23,5 +23,9 @@ module.exports = {
       // include: ['**/*.woff', '**/stylesheet.css'],
       destDir: '/assets/ckeditor'
     });
+  },
+  
+  isDevelopingAddon: function() {
+    return true;
   }
 };
