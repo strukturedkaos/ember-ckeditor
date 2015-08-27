@@ -13,7 +13,7 @@ export default Ember.Component.extend({
       editor = this._editor = CKEDITOR[initFn](this.get('elementId') + '-editor');
     
     editor.on('change', (e) => {
-      this.attrs.change(e.editor.getData());
+      this.set('value', e.editor.getData());
     });
   },
 
