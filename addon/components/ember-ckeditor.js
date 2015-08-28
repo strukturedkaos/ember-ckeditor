@@ -7,10 +7,25 @@ export default Ember.Component.extend({
   
   inline: false,
   _editor: null,
+  
+  extraPlugins: '',
+  
+  _settings: Ember.computed(
+    'extraPlugins',
+  {
+    get(){
+      let that = this,
+        settings = that.getProperties([
+          'extraPlugins'
+        ]);
+      
+      return settings;
+    }
+  }),
 
   didInsertElement() {
     let initFn = this.get('inline') ? 'inline' : 'replace',
-      editor = this._editor = CKEDITOR[initFn](this.get('elementId') + '-editor');
+      editor = this._editor = CKEDITOR[initFn](this.get('elementId') + '-editor', this.get('_settings'));
     
     this._editor.targetObject = this;
     

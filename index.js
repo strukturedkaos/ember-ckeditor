@@ -18,30 +18,8 @@ module.exports = {
   },
 
   treeForPublic: function(tree) {
-    return new Funnel('bower_components/ckeditor', {
+    return new Funnel(this.project.bowerDirectory + '/ckeditor', {
       srcDir: '/',
-      include: [
-        'ckeditor.js',
-        'adapters/jquery.js',
-        'styles.js',
-        'config.js',
-        'contents.css',
-        'lang/en.js',
-        'plugins/widget/plugin.js',
-        'plugins/widget/lang/en.js',
-        'plugins/autogrow/plugin.js',
-        'plugins/**/plugin.js',
-        'plugins/**/lang/en.js',
-        'plugins/**/*.png',
-        'plugins/**/*.gif',
-        'skins/**'
-      ],
-      destDir: '/assets/ckeditor'
-    });
-    
-    new Funnel(this.project.bowerDirectory + '/ckeditor', {
-      srcDir: '/',
-      // include: ['**/*.woff', '**/stylesheet.css'],
       destDir: '/assets/ckeditor'
     });
   },
