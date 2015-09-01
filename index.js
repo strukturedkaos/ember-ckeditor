@@ -17,13 +17,6 @@ module.exports = {
     }
   },
 
-  treeForPublic: function(tree) {
-    return new Funnel(this.project.bowerDirectory + '/ckeditor', {
-      srcDir: '/',
-      destDir: '/assets/ckeditor'
-    });
-  },
-  
   isDevelopingAddon: function() {
     return true;
   }
