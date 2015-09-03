@@ -12,7 +12,9 @@ module.exports = {
   },
 
   contentFor: function(type, config) {
-    if (type === 'vendor-prefix') {
+    if (config.environment === 'development') {
+      return "window.CKEDITOR_BASEPATH = '/assets/ckeditor/';";
+    } else {
       return "window.CKEDITOR_BASEPATH = 'https://s3.amazonaws.com/kevy-assets/assets/ckeditor/';";
     }
   },
