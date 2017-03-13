@@ -16,7 +16,7 @@ module.exports = {
       if (config.environment === 'development') {
         return "window.CKEDITOR_BASEPATH = '/assets/ckeditor/';";
       } else {
-        return "window.CKEDITOR_BASEPATH = 'https://cdn.kevy.com/assets/ckeditor/';";
+        return "window.CKEDITOR_BASEPATH = 'https://cdn.kevy.co/assets/ckeditor/';";
       }
     }
   },
